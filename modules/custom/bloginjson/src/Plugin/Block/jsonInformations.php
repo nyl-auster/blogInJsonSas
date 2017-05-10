@@ -11,7 +11,7 @@ use Drupal\Core\Access\AccessResult;
  *
  * @Block(
  *  id = "json_informations",
- *  admin_label = @Translation("Json informations"),
+ *  admin_label = @Translation("Vos webservices Json"),
  * )
  */
 class jsonInformations extends BlockBase {
@@ -42,12 +42,21 @@ class jsonInformations extends BlockBase {
     $base_url = $GLOBALS['base_url'];
     $user_name = \Drupal::currentUser()->getAccountName();
     $url_articles_liste =  strip_tags("http://127.0.0.1/jsonblog/jsonapi/node/article?sort=created&filter[status][value]=1&filter[uid.name][value]=$user_name");
+    $url_pages_liste =  strip_tags("http://127.0.0.1/jsonblog/jsonapi/node/page?sort=created&filter[status][value]=1&filter[uid.name][value]=$user_name");
     $url_single_article =  strip_tags("http://127.0.0.1/jsonblog/jsonapi/node/article/{id}");
+    $url_single_page =  strip_tags("http://127.0.0.1/jsonblog/jsonapi/node/page/{id}");
     $build = [];
-    $build['#markup'] = "Liste de vos posts publiés :<br />
+    $build['#markup'] = "<strong>Vos articles publiés </strong><br />
      <a target=\"_blank\" href=\"$url_articles_liste\">$url_articles_liste</a><br/><br/>
-     Obtenir un article en particulier<br />
+     <strong>Vos pages publiées </strong><br />
+     <a target=\"_blank\" href=\"$url_pages_liste\">$url_pages_liste</a><br/><br/>
+     
+     <strong>Obtenir un article en particulier</strong><br />
     <a href=\"$url_single_article\">$url_single_article</a><br/>
+    <br />
+         
+     <strong>Obtenir une page en particulier</strong><br />
+    <a href=\"$url_single_page\">$url_single_page</a><br/>
     <br />
 ";
     return $build;
