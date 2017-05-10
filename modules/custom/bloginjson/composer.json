@@ -1,0 +1,14 @@
+{
+  "name": "drupal/bloginjson",
+  "type": "drupal-module",
+  "description": "Blog in Json",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/bloginjson",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/bloginjson",
+    "source": "http://cgit.drupalcode.org/bloginjson"
+  },
+  "require": { }
+}

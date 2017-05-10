@@ -1,0 +1,5 @@
+name: bloginjson
+type: module
+description: Blog in Json
+core: 8.x
+package: Yineo

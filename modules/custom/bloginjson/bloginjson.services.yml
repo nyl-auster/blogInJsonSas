@@ -1,0 +1,11 @@
+services:
+  bloginjson.hide_front:
+    class: Drupal\bloginjson\EventSubscriber\HideFrontSubscriber
+    arguments: []
+    tags:
+      - {name: event_subscriber}
+  bloginjson.demoAccountReadOnly:
+    class: Drupal\bloginjson\EventSubscriber\demoAccountReadOnly
+    arguments: []
+    tags:
+      - {name: event_subscriber}
