@@ -41,10 +41,10 @@ class jsonInformations extends BlockBase {
   public function build() {
     $base_url = $GLOBALS['base_url'];
     $user_name = \Drupal::currentUser()->getAccountName();
-    $url_articles_liste =  strip_tags("http://127.0.0.1/jsonblog/jsonapi/node/article?sort=created&filter[status][value]=1&filter[uid.name][value]=$user_name");
-    $url_pages_liste =  strip_tags("http://127.0.0.1/jsonblog/jsonapi/node/page?sort=created&filter[status][value]=1&filter[uid.name][value]=$user_name");
-    $url_single_article =  strip_tags("http://127.0.0.1/jsonblog/jsonapi/node/article/{id}");
-    $url_single_page =  strip_tags("http://127.0.0.1/jsonblog/jsonapi/node/page/{id}");
+    $url_articles_liste =  strip_tags("http://127.0.0.1/jsonblog/api/article?sort=created&filter[status][value]=1&filter[uid.name][value]=$user_name");
+    $url_pages_liste =  strip_tags("http://127.0.0.1/jsonblog/api/page?sort=created&filter[status][value]=1&filter[uid.name][value]=$user_name");
+    $url_single_article =  strip_tags("http://127.0.0.1/jsonblog/api/article/{id}");
+    $url_single_page =  strip_tags("http://127.0.0.1/jsonblog/api/page/{id}");
     $build = [];
     $build['#markup'] = "<strong>Vos articles publiés </strong><br />
      <a target=\"_blank\" href=\"$url_articles_liste\">$url_articles_liste</a><br/><br/>

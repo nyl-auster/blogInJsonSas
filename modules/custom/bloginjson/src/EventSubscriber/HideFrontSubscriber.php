@@ -23,7 +23,7 @@ class HideFrontSubscriber implements EventSubscriberInterface {
    */
   public function hideFront(GetResponseEvent $event) {
 
-
+    //print \Drupal::routeMatch()->getRouteName();
 
     if (\Drupal::currentUser()->id()) {
       return false;
@@ -39,13 +39,17 @@ class HideFrontSubscriber implements EventSubscriberInterface {
       return false;
     }
 
+    if (strpos(\Drupal::service('path.current')->getPath(), '/myadmin') === 0) {
+      return false;
+    }
+
     // laisser  nos json :)
     if (strpos(\Drupal::service('path.current')->getPath(), '/jsonapi') === 0) {
       return false;
     }
 
     // dans les autres cas, on redirige automatiquement vers la page profil
-    $response = new RedirectResponse($GLOBALS['base_url'] . '/user', 301);
+    $response = new RedirectResponse($GLOBALS['base_url'] . '/myadmin', 301);
     $event->setResponse($response);
     $event->stopPropagation();
 

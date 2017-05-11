@@ -11,6 +11,7 @@
 # including Drupal core.
 core
 modules/contrib
+themes/contrib
 
 # Core's dependencies are managed with Composer.
 vendor

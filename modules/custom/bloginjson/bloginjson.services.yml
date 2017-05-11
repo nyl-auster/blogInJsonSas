@@ -9,3 +9,8 @@ services:
     arguments: []
     tags:
       - {name: event_subscriber}
+  bloginjson.route_subscriber:
+    class: Drupal\bloginjson\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
+
